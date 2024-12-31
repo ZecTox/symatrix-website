@@ -25,7 +25,9 @@
                     <li><a href="#brands">Brands</a></li>
                     <li><a href="#brochure">Brochure</a></li>
                     <li><a href="#about-us">About Us</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#our-mission">Our Mission</a></li>
+                    <li><a href="#our-team">Our Team</a></li>
+                    <li><a href="#contact-map">Contact Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,15 +68,21 @@
                     <h3>Product Name 3</h3>
                     <p>Brief description of Product 3.</p>
                 </div>
-                <!-- Additional Products -->
-                <!-- Repeat this block and adjust the data for each new product -->
-                <!-- Example for Product 4 -->
+                
+                <!-- Product 4 -->
                 <div class="product" data-name="Product Name 4" data-description="Brief description of Product 4." data-image="source/products/4.jpeg">
                     <img src="source/products/4.jpeg" alt="Product 4">
                     <h3>Product Name 4</h3>
                     <p>Brief description of Product 4.</p>
                 </div>
-                <!-- Continue adding products up to Product 60 -->
+                
+                <!-- Product 5 -->
+                <div class="product" data-name="Product Name 5" data-description="Brief description of Product 5." data-image="source/products/5.jpeg">
+                    <img src="source/products/5.jpeg" alt="Product 5">
+                    <h3>Product Name 5</h3>
+                    <p>Brief description of Product 5.</p>
+                </div>
+
             </div>
 
             <!-- Modal for Product Image Expansion -->
@@ -192,7 +200,9 @@
                     <li><a href="#our-mission">Our Mission</a></li>
                     <li><a href="#our-team">Our Team</a></li>
                     <li><a href="#products">Products</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#our-mission">Our Mission</a></li>
+                    <li><a href="#our-team">Our team</a></li>
+                    <li><a href="#contact-map">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-social">
@@ -286,16 +296,17 @@
             sections.forEach(section => {
                 activeSectionObserver.observe(section);
             });
-    
-            // Enhanced smooth scrolling
+
+            // Adjust scroll for fixed header
             navLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
+                    const offset = 80; // Adjust for fixed header height
     
                     window.scrollTo({
-                        top: targetElement.offsetTop,
+                        top: targetElement.offsetTop - offset,
                         behavior: 'smooth'  
                     });
                 });
