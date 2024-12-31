@@ -48,37 +48,33 @@
         <section id="products">
             <h2>Products</h2>
             <div class="product-grid">
-                <div class="product" data-name="Product Name 1" data-description="Brief description of Product 1." data-image="source/products/1.jpeg">
-                    <img src="source/products/1.jpeg" alt="Product 1">
-                    <h3>Product Name 1</h3>
-                    <p>Brief description of Product 1.</p>
+                <!-- Product 1 -->
+                <div class="product" data-name="3RH2122-1AP008K (230V AC WITH 2NO+2NC AUX. CONTACTOR)" data-description="7778438-69505394184" data-image="source/products/1.jpeg">
+                    <img src="source/products/1.jpeg" alt="3RH2122-1AP008K">
+                    <h3>3RH2122-1AP008K (230V AC WITH 2NO+2NC AUX. CONTACTOR)</h3>
+                    <p>7778438-69505394184</p>
                 </div>
-                <div class="product" data-name="Product Name 2" data-description="Brief description of Product 2." data-image="source/product/2.jpg">
+                <!-- Product 2 -->
+                <div class="product" data-name="Product Name 2" data-description="Brief description of Product 2." data-image="source/products/2.jpeg">
                     <img src="source/products/2.jpeg" alt="Product 2">
                     <h3>Product Name 2</h3>
                     <p>Brief description of Product 2.</p>
                 </div>
-                <div class="product" data-name="Product Name 3" data-description="Brief description of Product 3." data-image="source/product/3.jpg">
+                <!-- Product 3 -->
+                <div class="product" data-name="Product Name 3" data-description="Brief description of Product 3." data-image="source/products/3.jpeg">
                     <img src="source/products/3.jpeg" alt="Product 3">
                     <h3>Product Name 3</h3>
                     <p>Brief description of Product 3.</p>
                 </div>
+                <!-- Additional Products -->
+                <!-- Repeat this block and adjust the data for each new product -->
+                <!-- Example for Product 4 -->
                 <div class="product" data-name="Product Name 4" data-description="Brief description of Product 4." data-image="source/products/4.jpeg">
                     <img src="source/products/4.jpeg" alt="Product 4">
                     <h3>Product Name 4</h3>
                     <p>Brief description of Product 4.</p>
                 </div>
-                <div class="product" data-name="Product Name 5" data-description="Brief description of Product 5." data-image="source/products/5.jpeg">
-                    <img src="source/products/5.jpeg" alt="Product 5">
-                    <h3>Product Name 5</h3>
-                    <p>Brief description of Product 5.</p>
-                </div>
-                <div class="product" data-name="Product Name 6" data-description="Brief description of Product 6." data-image="source/products/6.jpeg">
-                    <img src="source/products/6.jpeg" alt="Product 6">
-                    <h3>Product Name 6</h3>
-                    <p>Brief description of Product 6.</p>
-                </div>
-                
+                <!-- Continue adding products up to Product 60 -->
             </div>
 
             <!-- Modal for Product Image Expansion -->
@@ -217,51 +213,51 @@
             const modalProductName = document.getElementById('modal-product-name');
             const modalProductDescription = document.getElementById('modal-product-description');
             const closeModal = document.querySelector('.close');
-
+    
+            // Move the modal to the main section
+            const mainSection = document.querySelector('main');
+            mainSection.appendChild(modal);
+    
             productElements.forEach(product => {
                 product.addEventListener('click', function() {
                     const name = product.getAttribute('data-name');
                     const description = product.getAttribute('data-description');
                     const image = product.getAttribute('data-image');
-
+    
                     modalImage.src = image;
                     modalProductName.textContent = name;
                     modalProductDescription.textContent = description;
-
+    
                     modal.style.display = 'flex';
                 });
             });
-
+    
             closeModal.addEventListener('click', function() {
                 modal.style.display = 'none';
             });
-
+    
             window.addEventListener('click', function(event) {
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
             });
-
+    
             const navToggle = document.querySelector('.nav-toggle');
             const nav = document.querySelector('nav');
-
+    
             navToggle.addEventListener('click', function() {
                 nav.classList.toggle('active');
             });
-
+    
             // Scroll-triggered animations
             const sections = document.querySelectorAll('section');
-
-            const options = {
-                threshold: 0.1
-            };
-
+    
             const observerOptions = {
                 root: null, // Use the viewport as the root
                 rootMargin: '0px',
                 threshold: 0.1 // Trigger when 10% of the section is visible
             };
-
+    
             const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -270,11 +266,11 @@
                     }
                 });
             }, observerOptions);
-
+    
             sections.forEach(section => {
                 sectionObserver.observe(section);
             });
-
+    
             // Highlight active link
             const navLinks = document.querySelectorAll('.nav-links a');
             const activeSectionObserver = new IntersectionObserver((entries) => {
@@ -286,18 +282,18 @@
                     }
                 });
             }, { threshold: 0.5 });
-
+    
             sections.forEach(section => {
                 activeSectionObserver.observe(section);
             });
-
+    
             // Enhanced smooth scrolling
             navLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-
+    
                     window.scrollTo({
                         top: targetElement.offsetTop,
                         behavior: 'smooth'  
@@ -305,6 +301,7 @@
                 });
             });
         });
-    </script>
+    </script>    
+
 </body>
 </html>

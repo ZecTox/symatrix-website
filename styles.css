@@ -1,4 +1,4 @@
-/* General Reset */
+        /* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 2    em;
+    padding: 1em 2em;
 }
 
 .logo img {
@@ -405,37 +405,38 @@ footer {
 }
 
 .modal-content {
+    display: flex;
+    align-items: center;
     background-color: #444;
     margin: auto;
     padding: 20px;
     border-radius: 10px;
     width: 80%;
-    max-width: 600px;
+    max-width: 1200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content img {
-    max-width: 50%;
+    width: 50%;
     height: auto;
     border-radius: 8px;
     margin-right: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.modal-content .product-info {
-    max-width: 50%;
+.product-info {
+    flex: 1;
     color: #ffffff;
     text-align: left;
 }
 
-.modal-content .product-info h3 {
+.product-info h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #c5c500; /* Accent color for headings */
-    text-align: left;
+    color: #f39c12;
 }
 
-.modal-content .product-info p {
+.product-info p {
     font-size: 1em;
     line-height: 1.5;
 }
