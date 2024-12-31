@@ -184,13 +184,11 @@
                 </ul>
             </div>
             <div class="footer-social">
-                <a href="#" aria-label="Facebook"><img src="source/facebook-icon.png" alt="Facebook"></a>
-                <a href="#" aria-label="Twitter"><img src="source/twitter-icon.png" alt="Twitter"></a>
-                <a href="#" aria-label="LinkedIn"><img src="source/linkedin-icon.png" alt="LinkedIn"></a>
+                <a  target="_blank" href="https://www.linkedin.com/in/symatrix-industrial-controls-10483b178/" aria-label="LinkedIn"><img src="source/linkedin.png" alt="LinkedIn"></a><b>LinkedIn</b>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Symatrix Industrial Controls. All rights reserved.</p>
+            <p>&copy; 2024 Symatrix Industrial Controls. All rights reserved.</p>
         </div>
     </footer>
 
@@ -237,26 +235,33 @@
 
             // Scroll-triggered animations
             const sections = document.querySelectorAll('section');
+
             const options = {
                 threshold: 0.1
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the section is visible
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target);
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once the section is visible
                     }
                 });
-            }, options);
+            }, observerOptions);
 
             sections.forEach(section => {
-                observer.observe(section);
+                sectionObserver.observe(section);
             });
 
             // Highlight active link
             const navLinks = document.querySelectorAll('.nav-links a');
-            const sectionObserver = new IntersectionObserver((entries) => {
+            const activeSectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         navLinks.forEach(link => {
@@ -267,7 +272,7 @@
             }, { threshold: 0.5 });
 
             sections.forEach(section => {
-                sectionObserver.observe(section);
+                activeSectionObserver.observe(section);
             });
 
             // Enhanced smooth scrolling
