@@ -17,7 +17,7 @@ body {
 
 /* Header */
 header {
-    background-color: #222;
+    background-color: #111;
     color: white;
     position: fixed;
     width: 100%;
@@ -714,8 +714,8 @@ html {
 }
 
 .footer-section {
-    padding: 40px 20px;
-    background: #222;
+    padding: 35px;
+    background: #111;
     color: #fff;
     text-align: center;
 }
@@ -777,13 +777,13 @@ html {
 }
 
 .footer-social a img {
-    width: 30px;
+    width: 100px;
     height: 30px;
     transition: transform 0.3s ease;
 }
 
 .footer-social a:hover img {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .footer-bottom {
@@ -946,7 +946,7 @@ section.visible {
 section h2 {
     font-size: 2.5rem;
     color: #f39c12;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
