@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Symatrix Industrial Controls</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
+    <meta name="description" content="Symatrix Industrial Controls - Your Trusted Partner in Industrial Automation. Explore premium solutions for switchgears, motors, and automation.">
+    <meta name="keywords" content="Symatrix, Industrial Automation, Switchgears, Motors, Automation Solutions">
+    <meta name="author" content="Symatrix Industrial Controls">
+
+    <title>Symatrix Industrial Controls | Industrial Automation Experts</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="source/favicon.png">
     
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -36,13 +49,16 @@
     <!-- Main Section -->
     <main>
         <section id="home">
-            <div class="background-image">
-                <img src="source/siemens_intro.gif" alt="Machines Background">
-            </div>
-            <div class="content">
-                <h1>Symatrix Industrial Controls</h1>
-                <h2>Approved channel partner of SIEMENS Switchgear & Motors</h2>
-                <p>We deal in Switchgears, Motors, Industrial Automation, CNC Automation(MCMT)</p>
+            <div class="home-content">
+                <div class="home-text">
+                    <h1>Welcome to Symatrix Industrial Controls</h1>
+                    <h2>Your Trusted Partner in Industrial Automation</h2>
+                    <p>We specialize in providing top-notch solutions for switchgears, motors, and industrial automation. Discover how we can empower your industry with innovative technology and reliable support.</p>
+                    <a href="#products" class="cta-button">Explore Our Products</a>
+                </div>
+                <div class="home-image">
+                    <img src="source/siemens_intro.gif" alt="Industrial Automation">
+                </div>
             </div>
         </section>
 
@@ -50,42 +66,38 @@
         <section id="products">
             <h2>Products</h2>
             <div class="product-grid">
-                <!-- Product 1 -->
                 <div class="product" data-name="3RH2122-1AP008K (230V AC WITH 2NO+2NC AUX. CONTACTOR)" data-description="7778438-69505394184" data-image="source/products/1.jpeg">
                     <img src="source/products/1.jpeg" alt="3RH2122-1AP008K">
                     <h3>3RH2122-1AP008K (230V AC WITH 2NO+2NC AUX. CONTACTOR)</h3>
                     <p>7778438-69505394184</p>
                 </div>
-                <!-- Product 2 -->
                 <div class="product" data-name="Product Name 2" data-description="Brief description of Product 2." data-image="source/products/2.jpeg">
                     <img src="source/products/2.jpeg" alt="Product 2">
                     <h3>Product Name 2</h3>
                     <p>Brief description of Product 2.</p>
                 </div>
-                <!-- Product 3 -->
                 <div class="product" data-name="Product Name 3" data-description="Brief description of Product 3." data-image="source/products/3.jpeg">
                     <img src="source/products/3.jpeg" alt="Product 3">
                     <h3>Product Name 3</h3>
                     <p>Brief description of Product 3.</p>
                 </div>
-                
-                <!-- Product 4 -->
                 <div class="product" data-name="Product Name 4" data-description="Brief description of Product 4." data-image="source/products/4.jpeg">
                     <img src="source/products/4.jpeg" alt="Product 4">
                     <h3>Product Name 4</h3>
                     <p>Brief description of Product 4.</p>
                 </div>
-                
-                <!-- Product 5 -->
                 <div class="product" data-name="Product Name 5" data-description="Brief description of Product 5." data-image="source/products/5.jpeg">
                     <img src="source/products/5.jpeg" alt="Product 5">
                     <h3>Product Name 5</h3>
                     <p>Brief description of Product 5.</p>
                 </div>
-
+                <div class="product" data-name="Product Name 5" data-description="Brief description of Product 5." data-image="source/products/5.jpeg">
+                    <img src="source/products/5.jpeg" alt="Product 5">
+                    <h3>Product Name 5</h3>
+                    <p>Brief description of Product 5.</p>
+                </div>
             </div>
 
-            <!-- Modal for Product Image Expansion -->
             <div id="product-modal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -239,60 +251,59 @@
         </div>
     </footer>
 
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const productElements = document.querySelectorAll('.product');
             const modal = document.getElementById('product-modal');
             const modalImage = document.getElementById('modal-image');
             const modalProductName = document.getElementById('modal-product-name');
             const modalProductDescription = document.getElementById('modal-product-description');
             const closeModal = document.querySelector('.close');
-    
+
             // Move the modal to the main section
             const mainSection = document.querySelector('main');
             mainSection.appendChild(modal);
-    
+
             productElements.forEach(product => {
-                product.addEventListener('click', function() {
+                product.addEventListener('click', function () {
                     const name = product.getAttribute('data-name');
                     const description = product.getAttribute('data-description');
                     const image = product.getAttribute('data-image');
-    
+
                     modalImage.src = image;
                     modalProductName.textContent = name;
                     modalProductDescription.textContent = description;
-    
+
                     modal.style.display = 'flex';
                 });
             });
-    
-            closeModal.addEventListener('click', function() {
+
+            closeModal.addEventListener('click', function () {
                 modal.style.display = 'none';
             });
-    
-            window.addEventListener('click', function(event) {
+
+            window.addEventListener('click', function (event) {
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
             });
-    
+
             const navToggle = document.querySelector('.nav-toggle');
             const nav = document.querySelector('nav');
-    
-            navToggle.addEventListener('click', function() {
+
+            navToggle.addEventListener('click', function () {
                 nav.classList.toggle('active');
             });
-    
+
             // Scroll-triggered animations
             const sections = document.querySelectorAll('section');
-    
+
             const observerOptions = {
                 root: null, // Use the viewport as the root
                 rootMargin: '0px',
                 threshold: 0.1 // Trigger when 10% of the section is visible
             };
-    
+
             const sectionObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -301,11 +312,11 @@
                     }
                 });
             }, observerOptions);
-    
+
             sections.forEach(section => {
                 sectionObserver.observe(section);
             });
-    
+
             // Highlight active link
             const navLinks = document.querySelectorAll('.nav-links a');
             const activeSectionObserver = new IntersectionObserver((entries) => {
@@ -317,27 +328,50 @@
                     }
                 });
             }, { threshold: 0.5 });
-    
+
             sections.forEach(section => {
                 activeSectionObserver.observe(section);
             });
 
             // Adjust scroll for fixed header
             navLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
+                link.addEventListener('click', function (event) {
                     event.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
                     const offset = 80; // Adjust for fixed header height
-    
+
                     window.scrollTo({
                         top: targetElement.offsetTop - offset,
-                        behavior: 'smooth'  
+                        behavior: 'smooth'
                     });
                 });
             });
-        });
-    </script>    
 
+            // Intersection Observer for CTA Button
+            const ctaButton = document.querySelector('.cta-button');
+
+            if (ctaButton) {
+                const ctaObserverOptions = {
+                    root: null, // Use the viewport as the root
+                    rootMargin: '0px',
+                    threshold: [0, 0.5, 1] // Trigger at different visibility thresholds
+                };
+
+                const ctaObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        console.log('CTA Button Visibility:');
+                        console.log(`Is Visible: ${entry.isIntersecting}`);
+                        console.log(`Intersection Ratio: ${entry.intersectionRatio}`);
+                        console.log(`Bounding Client Rect:`, entry.boundingClientRect);
+                        console.log(`Root Bounds:`, entry.rootBounds);
+                        console.log(`Target:`, entry.target);
+                    });
+                }, ctaObserverOptions);
+
+                ctaObserver.observe(ctaButton);
+            }
+        });
+    </script>
 </body>
 </html>
