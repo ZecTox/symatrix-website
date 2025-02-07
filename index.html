@@ -185,7 +185,7 @@
         <div class="contact-info">
           <h3>Get in Touch</h3>
           <p>
-            We’d love to hear from you! Whether you have a question about our
+            We'd love to hear from you! Whether you have a question about our
             products, pricing, or anything else, our team is ready to answer all
             your questions.
           </p>
@@ -280,5 +280,11 @@
 
   <!-- SCRIPTS -->
   <script src="script.js"></script>
+  <script>
+    window.history.scrollRestoration = 'manual';
+    document.addEventListener('DOMContentLoaded', () => {
+      handleScrollAnimation(); // Ensure visible classes are applied immediately
+    });
+  </script>
 </body>
 </html>
