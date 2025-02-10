@@ -30,36 +30,55 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css" />
+
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- HEADER WITH NAVIGATION -->
   <header>
     <div class="container">
       <a href="index.html" class="logo">
         <img src="source/symatrix_logo.jpg" alt="Symatrix Logo" />
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-      <nav class="nav-links">
+      
+      <!-- Desktop Navigation -->
+      <nav class="nav-links desktop">
         <ul>
-          <li><a href="index.html#home">Home</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="index.html#brands">Brands</a></li>
-          <li><a href="index.html#brochure">Brochure</a></li>
-          <li><a href="index.html#about-us">About Us</a></li>
-          <li><a href="index.html#our-mission">Our Mission</a></li>
-          <li><a href="index.html#our-team">Our Team</a></li>
-          <li><a href="index.html#contact-map">Contact Us</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#brochure">Brochure</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li><a href="#our-mission">Our Mission</a></li>
+          <li><a href="#our-team">Our Team</a></li>
+          <li><a href="#contact-map">Contact Us</a></li>
         </ul>
       </nav>
+      
+      <!-- Mobile Navigation Toggle Block -->
+      <div class="mobile-nav-toggle">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+      </div>
     </div>
+    <!-- Mobile Navigation Overlay -->
+    <nav class="nav-links mobile">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#brochure">Brochure</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#our-mission">Our Mission</a></li>
+        <li><a href="#our-team">Our Team</a></li>
+        <li><a href="#contact-map">Contact Us</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <!-- HOME SECTION -->
+    <!-- Home Section -->
     <section id="home">
       <div class="home-content">
         <div class="home-text">
@@ -287,14 +306,15 @@
       handleScrollAnimation(); // Ensure visible classes are applied immediately
     });
 
+    // Ensure the DOM is ready before attaching events
     document.addEventListener("DOMContentLoaded", function() {
       const navToggle = document.querySelector(".nav-toggle");
-      const navMenu = document.querySelector(".nav-links");
-      if (navToggle && navMenu) {
-        navToggle.addEventListener("click", function() {
-          navMenu.classList.toggle("active");
-        });
-      }
+      const mobileNav = document.querySelector("nav.nav-links.mobile");
+      
+      // Toggle mobile navigation overlay on click.
+      navToggle.addEventListener("click", function() {
+        mobileNav.classList.toggle("active");
+      });
     });
   </script>
 </body>
