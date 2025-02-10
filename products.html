@@ -18,14 +18,18 @@
   <link rel="stylesheet" href="product-styles.css" />
 </head>
 <body>
-  <!-- HEADER -->
-  <header class="header">
+  <!-- HEADER WITH HAMBURGER NAV -->
+  <header>
     <div class="container">
-      <a href="index.html" class="logo">
-        <img src="source/symatrix_logo.jpg" alt="Symatrix Logo" />
-      </a>
-      <nav>
-        <ul class="nav-links">
+      <div class="logo">
+        <a href="index.html"><img src="source/symatrix_logo.jpg" alt="Brand Logo"></a>
+      </div>
+      <!-- Hamburger Nav Toggle -->
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav-links">
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html" class="active">Products</a></li>
           <li><a href="index.html#brands">Brands</a></li>
@@ -690,6 +694,14 @@
       if (e.target === modal) {
         modal.style.display = 'none';
       }
+    });
+
+    // Toggle the active class on the nav element when the hamburger is clicked
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
     });
   </script>
 </body>

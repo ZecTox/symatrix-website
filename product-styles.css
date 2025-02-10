@@ -300,6 +300,24 @@ main {
   color: var(--color-text);
 }
 
+/* Mobile adjustments for Home Section */
+@media (max-width: 768px) {
+  /* Remove any margin and padding from the home section (supports .hero or .home-section) */
+  .hero,
+  .home-section {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure images in the home section fill the container's width */
+  .hero img,
+  .home-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
 /* ===================================
    4. FILTER SECTION (Optional)
 =================================== */
