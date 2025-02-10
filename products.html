@@ -636,8 +636,8 @@
     const searchInput = document.getElementById('searchInput');
     const categorySelect = document.getElementById('categorySelect');
 
-    filterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    // Extract the filtering logic into a separate function
+    function applyFilter() {
       const searchTerm = searchInput.value.toLowerCase();
       const categoryValue = categorySelect.value;
       const productCards = productGrid.querySelectorAll('.product-card');
@@ -649,13 +649,18 @@
         const categoryMatch = !categoryValue || cardCategory === categoryValue;
         const searchMatch = !searchTerm || cardText.includes(searchTerm);
 
-        if (categoryMatch && searchMatch) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = (categoryMatch && searchMatch) ? '' : 'none';
       });
+    }
+
+    // Listen for form submit and prevent default form submission
+    filterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      applyFilter();
     });
+
+    // New: Listen for changes to the category select element to auto-filter
+    categorySelect.addEventListener('change', applyFilter);
 
     // 2) MODAL (LIGHTBOX) FOR ENLARGED PRODUCT IMAGE
     const productImages = document.querySelectorAll('.product-card img');
