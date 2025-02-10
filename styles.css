@@ -87,7 +87,10 @@ header {
   width: auto;
 }
 
-/* Nav Toggle (Hamburger) */
+/* -----------------------------------
+   NAVIGATION & HAMBURGER TOGGLE STYLES
+--------------------------------------*/
+/* Nav Toggle (Hamburger) - Desktop */
 .nav-toggle {
   display: none;
   cursor: pointer;
@@ -95,6 +98,7 @@ header {
   border: none;
   outline: none;
 }
+
 .nav-toggle .hamburger {
   width: 25px;
   height: 3px;
@@ -102,6 +106,7 @@ header {
   position: relative;
   transition: background-color var(--transition-base);
 }
+
 .nav-toggle .hamburger::before,
 .nav-toggle .hamburger::after {
   content: "";
@@ -109,21 +114,23 @@ header {
   width: 25px;
   height: 3px;
   background-color: var(--color-text);
-  display: block;
 }
+
 .nav-toggle .hamburger::before {
   top: -8px;
 }
+
 .nav-toggle .hamburger::after {
   top: 8px;
 }
 
-/* Navigation Links */
+/* Navigation Links - Desktop */
 nav {
   display: flex;
   gap: 1em;
   margin-left: auto;
 }
+
 nav ul {
   display: flex;
   gap: 1.5em;
@@ -131,6 +138,7 @@ nav ul {
   margin: 0;
   padding: 0;
 }
+
 .nav-links li a {
   text-decoration: none;
   color: var(--color-text);
@@ -138,35 +146,60 @@ nav ul {
   font-weight: 600;
   transition: color var(--transition-base);
 }
+
 .nav-links li a:hover {
   color: var(--color-accent-secondary);
 }
 
-/* Mobile Navigation */
+/* -----------------------------------
+   MOBILE NAVIGATION STYLES
+--------------------------------------*/
 @media (max-width: 768px) {
+  /* Show the hamburger toggle on mobile */
   .nav-toggle {
     display: block;
   }
+  
+  /* Mobile Navigation Overlay */
   nav {
-    display: none; /* hidden by default on mobile */
-  }
-  nav.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 60px; /* Adjust if your fixed header height changes */
     left: 0;
     width: 100%;
     background-color: var(--color-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1em 0;
+    z-index: 999;
+    /* Start hidden */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
+  
+  /* When the nav is active, fade it in */
+  nav.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Adjust the menu list layout */
   nav ul {
     flex-direction: column;
-    gap: 1em;
     align-items: center;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
   }
+  
+  /* Improve link tap targets */
   .nav-links li a {
     font-size: 1.2em;
+    padding: 0.5em 1em;
+    text-align: center;
+    display: block;
+    width: 100%;
   }
 }
 
@@ -203,7 +236,7 @@ main {
   width: 100%;
   max-width: 1800px;
   margin: 0;
-  padding: 40px 20px;
+  padding: 0px 20px;
   z-index: 1; /* content above any overlay */
 }
 .home-text {
