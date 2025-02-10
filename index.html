@@ -31,17 +31,82 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Extra CSS for header structure (can be moved to styles.css) -->
+  <style>
+    /* Style the header container for flex alignment on mobile */
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em 2em;
+    }
+
+    /* Default (desktop) styles */
+    @media (min-width: 769px) {
+      .nav-toggle, .mobile-nav {
+        display: none;
+      }
+      .nav-links.desktop {
+        display: flex;
+      }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      /* Hide the desktop nav in mobile view */
+      .nav-links.desktop {
+        display: none;
+      }
+      /* Display the toggle button */
+      .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5em;
+      }
+      /* Initially hide the mobile nav overlay */
+      .mobile-nav {
+        display: none;
+        background: var(--bg-light, #fff);
+        position: fixed;
+        top: 70px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        flex-direction: column;
+      }
+      /* When active, show the mobile nav overlay */
+      .mobile-nav.active {
+        display: flex;
+      }
+      /* Basic styling for the mobile nav list */
+      .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .mobile-nav ul li a {
+        display: block;
+        padding: 1em;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        text-decoration: none;
+        color: var(--color-text, #333);
+      }
+    }
+  </style>
+
 </head>
 
 <body>
-  <!-- HEADER WITH NAVIGATION -->
   <header>
-    <div class="container">
+    <!-- Header container with logo, desktop nav, and mobile toggle -->
+    <div class="container header-container">
       <a href="index.html" class="logo">
         <img src="source/symatrix_logo.jpg" alt="Symatrix Logo" />
       </a>
-      
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation: visible only on larger screens -->
       <nav class="nav-links desktop">
         <ul>
           <li><a href="#home">Home</a></li>
@@ -54,16 +119,14 @@
           <li><a href="#contact-map">Contact Us</a></li>
         </ul>
       </nav>
-      
-      <!-- Mobile Navigation Toggle Block -->
-      <div class="mobile-nav-toggle">
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span class="hamburger"></span>
-        </button>
-      </div>
+      <!-- Mobile Toggle Button: visible only on mobile -->
+      <button class="nav-toggle" aria-label="Toggle Navigation">
+        <span class="hamburger"></span>
+      </button>
     </div>
-    <!-- Mobile Navigation Overlay -->
-    <nav class="nav-links mobile">
+
+    <!-- Mobile Navigation Overlay: toggled via JavaScript -->
+    <nav class="mobile-nav">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="products.html">Products</a></li>
@@ -306,12 +369,11 @@
       handleScrollAnimation(); // Ensure visible classes are applied immediately
     });
 
-    // Ensure the DOM is ready before attaching events
+    // Toggle the mobile navigation overlay on mobile devices
     document.addEventListener("DOMContentLoaded", function() {
       const navToggle = document.querySelector(".nav-toggle");
-      const mobileNav = document.querySelector("nav.nav-links.mobile");
+      const mobileNav = document.querySelector(".mobile-nav");
       
-      // Toggle mobile navigation overlay on click.
       navToggle.addEventListener("click", function() {
         mobileNav.classList.toggle("active");
       });

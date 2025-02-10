@@ -690,3 +690,18 @@ main {
     transform: scale(1);
   }
 }
+
+/* Hide mobile nav blocks in desktop view */
+@media (min-width: 769px) {
+  .mobile-nav-toggle,
+  nav.nav-links.mobile {
+    display: none;
+  }
+}
+
+/* Show mobile nav blocks only in mobile view */
+@media (max-width: 768px) {
+  nav.nav-links.desktop {
+    display: none;
+  }
+}
