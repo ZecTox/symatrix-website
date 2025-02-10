@@ -521,75 +521,95 @@ main {
   margin-top: 20px;
 }
 
-/* ===================================
-   MODAL (Lightbox) STYLING
-=================================== */
+/* ====================================================
+   Product Modal Styling (Improved Transitions)
+==================================================== */
+
+/* Modal container for product image */
 .modal {
-  display: none;             /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed;
-  z-index: 2000;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  /* SOLID WHITE BACKGROUND (no transparency) */
-  background-color: #fff;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay for desktop */
   justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Modal Content (the enlarged image) */
+/* Show the modal with a smooth fade & scale transition */
+.modal.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  animation: modalFadeIn 0.35s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modal content (the product image) */
 .modal-content {
   margin: auto;
   display: block;
   max-width: 90%;
-  max-height: 80vh;
-  /* border-radius: var(--border-radius); */
-  /* box-shadow: var(--box-shadow); */
-  animation: fadeIn 0.3s ease-out;
+  max-height: 90%;
+  transition: transform 0.3s ease;
 }
 
-/* CAPTION: bigger text, yellow color, no hover effect */
-.caption {
-  margin: 20px auto;
-  text-align: center;
-  color: #FFD700; /* Yellow */
-  font-size: 60px; /* Bigger text */
-  max-width: 90%;
-  font-weight: bolder;
-  /* background-color: var(--bg-grey); */
-  border-radius: var(--border-radius);
-  padding: 0.75rem 1rem;
-  font-style: italic;
-  /* Removed hover changes */
-}
-
-/* Close Button (X icon) */
-.close-btn {
+/* Close button styling */
+.close {
   position: absolute;
-  top: 30px;
-  right: 30px;
-  color: var(--color-text);
-  font-size: 2rem;
+  top: 20px;
+  right: 25px;
+  color: #fff;
+  font-size: 35px;
   font-weight: bold;
   cursor: pointer;
-  transition: color var(--transition-base);
-}
-.close-btn:hover {
-  color: var(--color-accent);
+  transition: color 0.3s ease;
 }
 
-/* Fade-in animation (optional) */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.close:hover,
+.close:focus {
+  color: #f39c12;
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 768px) {
+  /* Change overlay to a nearly opaque white background */
+  .modal {
+    background-color: rgba(255, 255, 255, 0.95);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  /* Allow a little more room for the image on mobile */
+  .modal-content {
+    max-width: 95%;
+    max-height: 95%;
   }
+  /* Adjust close button for better tap accessibility on mobile */
+  .close {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+  }
+}
+
+/* Additional rule to remove underline from links in any modal content */
+.modal a {
+  text-decoration: none;
 }
 
 .siemens-logo img {
