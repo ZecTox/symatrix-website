@@ -389,7 +389,7 @@ main {
 }
 
 .siemens-logo h3 {
-  color: var(--color-accent-secondary);
+  /* color: var(--color-accent-secondary); */
   font-weight: bold;
   margin-top: 10px;
 }
