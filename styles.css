@@ -454,7 +454,7 @@ main {
 .info-content {
   flex: 1;
   min-width: 300px;
-  max-width: 800px;
+  max-width: 1000px;
   background: var(--color-grey);
   padding: 20px;
   border-radius: 10px;
@@ -703,5 +703,63 @@ main {
 @media (max-width: 768px) {
   nav.nav-links.desktop {
     display: none;
+  }
+}
+
+/* ===== OWNER BLOCK (image INSIDE card) ===== */
+.owner-block {
+  display: flex;
+  align-items: center;
+  gap: 30px;          /* space between text & image */
+}
+
+.owner-text {         /* text column */
+  flex: 1;
+}
+
+.owner-photo {        /* image column */
+  flex: 0 0 350px;    /* fixed max width on desktop */
+}
+
+.owner-photo img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-base);
+}
+
+/* Button, subtitle (borrowed from previous snippet) */
+.subtitle {
+  display: block;
+  font-size: 0.75em;
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.owner-cta {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  background-color: var(--color-accent-secondary);
+  color: var(--color-light);
+  text-decoration: none;
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--box-shadow-base);
+  transition: background-color var(--transition-base), transform 0.2s ease;
+}
+.owner-cta:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Mobile stacking */
+@media (max-width: 768px) {
+  .owner-block {
+    flex-direction: column;
+    text-align: center;
+  }
+  .owner-photo,
+  .owner-text {
+    width: 100%;
   }
 }
