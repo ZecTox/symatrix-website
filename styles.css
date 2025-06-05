@@ -364,7 +364,7 @@ main {
 }
 .brand img {
   object-fit: contain;
-  width: 100%;
+  width: 110%;
   max-height: 100px;
 }
 .brand h3 {
@@ -533,7 +533,7 @@ main {
   padding: 10px;
   border: none;
   border-radius: var(--border-radius-base);
-  background: var(--color-grey-light);
+  /* background: var(--color-grey-light); */
   color: var(--color-text);
   font-size: 1rem;
   transition: background var(--transition-base);
