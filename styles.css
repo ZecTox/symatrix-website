@@ -221,7 +221,7 @@ main {
       rgba(243, 156, 18, 0.1) 100%
     ),
     url("source/hero-bg.jpg") center/cover no-repeat; /* optional background */
-  min-height: 100vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
